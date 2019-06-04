@@ -1,0 +1,35 @@
+----------
+COMMIT - 5/4/2019  -  Justin Grimes
+v1.1 - improve comments, code readability.
+
+----------
+COMMIT - 3/8/2019  -  Justin Grimes
+v1.0 - Make sendEmail use .exec "cmd /c" instead of .run
+
+-Make sendEmail cmd box hidden, since output is not returned to the vbs script.
+
+----------
+COMMIT - 3/7/2019  -  Justin Grimes
+v0.9 - Fix mislabelled log file.
+
+-Log file was mis-labelled "-camera_data_monitor.txt".
+-Changed log file name to "-infrastructure_checkup.txt"
+-Fix bugs with generating a new mail file.
+-Previously if a mail file existed a new one would not be created.
+-Currently if a mail file exists it is deleted and a new one is created.
+
+----------
+COMMIT - 3/7/2019  -  Justin Grimes
+v0.8 - Fix sending an old mailfile.
+
+-Fix bugs with generating a new mail file.
+-Previously if a mail file existed a new one would not be created.
+-Currently if a mail file exists it is deleted and a new one is created.
+
+----------
+COMMIT - 3/6/2019  -  Justin Grimes
+v0.7 - Fix MSInfo32 bugs.
+
+-Fix bugs with generating MSInfo32 report.
+-Add this changelog.
+----------
