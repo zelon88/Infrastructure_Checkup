@@ -8,13 +8,17 @@ AUTHOR: Justin Grimes
 
 ORIGINAL VERSION DATE: 3/8/2019
 
-CURRENT VERSION DATE: 6/4/2019
+CURRENT VERSION DATE: 11/25/2022
 
-VERSION: v1.1
+VERSION: v1.2
 
 DESCRIPTION: 
 A simple script to output the health, status, & configuration of networked workstations.
-
+Supported arguments are:
+ -v  -  Verbose operation. Output any messages to a MsgBox.
+ -e  -  Email operation. Output any messages to an email.
+ -l  -  Log operation. Output any messages to a logfile.
+ -s  -  Do not output any messages to a MsgBox.
 
 PURPOSE: 
 To provide information about managed devices on an automated, regular basis and in a consistent manner.

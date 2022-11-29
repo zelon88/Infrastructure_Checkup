@@ -1,5 +1,5 @@
 'File Name: Infrastructure_Checkup.vbs
-'Version: v1.1, 6/4/2019
+'Version: v1.2, 11/25/2022
 'Author: Justin Grimes, 3/5/2019
 
 ' --------------------------------------------------
@@ -27,21 +27,21 @@ strDateTime = strSafeDate&"-"&strSafeTime
   ' Change the following variables to match the details of your organization.
   
   ' The "appPath" is the full absolute path for the script directory, with trailing slash.
-  appPath = "\\SERVER\AutomationScripts\Infrastructure_Checkup\"
+  appPath = "\\server\Scripts\Infrastructure_Checkup\"
   ' The "logPath" is the full absolute path for where network-wide logs are stored.
-  logPath = "\\SERVER\Logs"
+  logPath = "\\server\Logs"
   ' The "dataDir" is where all generated reports will be stored. 
   'Subdirectories for computer name and report time will be created in this directory.
-  dataDir = "\\SERVER\IT\Computers\"
+  dataDir = "\\server\Logs\Computers\"
   ' The "companyName" the the full, unabbreviated name of your organization.
-  companyName = "Company Inc."
+  companyName = "The Company Inc."
   ' The "companyAbbr" is the abbreviated name of your organization.
-  companyAbbr = "Company"
+  companyAbbr = "TCI"
   ' The "companyDomain" is the domain to use for sending emails. Generated report emails will appear
   ' to have been sent by "COMPUTERNAME@domain.com"
-  companyDomain = "Company.com"
+  companyDomain = "thecompany.com"
   ' The "toEmail" is a valid email address where notifications will be sent.
-  toEmail = "IT@Company.com"
+  toEmail = "helpdesk@thecompany.com"
   ' ----------
 logfile = logPath&"\"&computerName&"-"&strDateTime&"-infrastructure_checkup.txt"
 mailFile = appPath&"Warning.mail" 
@@ -58,6 +58,7 @@ mainError = False
 ' -v  -  Verbose operation. Output any messages to a MsgBox.
 ' -e  -  Email operation. Output any messages to an email.
 ' -l  -  Log operation. Output any messages to a logfile.
+' -s  -  Do not output any messages to a MsgBox.
 'Returns an array of arguments in the order listed below.
 Function ParseArgs(args)
   Dim outputArray(3)
@@ -131,7 +132,7 @@ Function SendEmail(mailFile, mailContent)
   End If
   If fileSystem.FileExists(mailFile) Then
     error = False
-    oShell.exec "C:\Windows\System32\cmd.exe /c "&appPath&"sendmail.exe "&mailFile
+    oShell.exec appPath&"sendmail.exe "&mailFile
   End If
   SendEmail = error
 End Function
